@@ -1,0 +1,120 @@
+$primary: #001b37;
+$white: #fff;
+$primary-light: #5e96c0;
+$shadow: 0 8px 30px rgba(0,0,0,.1);
+
+/* Navigation */
+.navbar{position:fixed;top:0;left:0;width:100vw;z-index:1000}
+.nav-container{background:$primary;margin:0 auto;padding:0 40px;display:flex;justify-content:space-between;align-items:center;height:70px}
+.nav-logo img{width:10vw}
+.nav-menu{display:flex;list-style:none;gap:2rem}
+.nav-menu a{text-decoration:none;color:$white;font-weight:500;transition:color .3s;position:relative}
+.nav-menu a:hover{color:$primary-light}
+.nav-menu a::after{content:'';position:absolute;width:0;height:2px;bottom:-5px;left:0;background:linear-gradient(135deg,$primary-light,#021e34);transition:width .3s}
+.nav-menu a:hover::after{width:100%}
+.nav-toggle{display:none;flex-direction:column;cursor:pointer}
+.bar{width:25px;height:3px;background:$white;margin:3px 0;transition:.3s}
+
+/* Common background styles */
+.inicio,.nosotros,.info-container,.horarios,.ubicacion{background-size:cover;background-position:center;background-repeat:no-repeat}
+
+/* Inicio */
+.inicio{background-image:url('../../assets/home3.svg');min-height:100vh;display:flex;align-items:flex-end;position:relative;overflow:hidden;}
+.inicio-container{align-items:flex-end;width:100%;display:flex;justify-content:flex-end;padding:40px}
+.title1{font-size:3.5rem;margin: 0;}
+.inicio-title1{font-weight:400;color:$white}
+.title2{font-size:4rem;margin: 0;margin-bottom: 40px;}
+.inicio-title2{font-weight:700;color:$white}
+.inicio-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{padding:15px 30px;border-radius:50px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s;display:inline-block;text-align:center;background:transparent;color:$white;border:2px solid $white;min-width:150px}
+.btn:hover{background:$white;color:$primary;transform:translateY(-2px)}
+
+/* Nosotros */
+.nosotros{background-image:url('../../assets/fondoAzul.jpg');padding: 70px 15px;align-content:center;text-align:center}
+.nosotros-content p{font-size:2rem;font-weight:400;padding:0px 200px 30px;margin:0}
+.video{border-radius: 3%;}
+
+/* Info */
+.info-container{background-image:linear-gradient(rgba(0,0,70,.4),rgba(0,0,25,.4)),url('../../assets/convencion.svg');height:90vh;display:flex;justify-content:center;text-align:center}
+.info-content{font-size:2.5rem;font-weight:400;padding:0 300px;color:$white;align-content:center}
+
+/* Horarios */
+.horarios{background-image:url('../../assets/fondoBlanco.jpg');padding: 70px 15px;text-align:center;}
+.horario-title1{font-weight:400;color:$primary}
+.horario-title2{font-weight:700;color:$primary}
+.horario-grid{display: flex;justify-content: center;margin: auto;gap: 20px;}
+.horario-card{background:$white;border-radius:15px;box-shadow:$shadow}
+.horario-card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
+.horario-img{width:100%;height:300px;object-fit:cover;display:block;border-radius: 15px;}
+.content-card{padding:25px;text-align:center;flex-grow:1;display:flex;flex-direction:column;justify-content:center;color:$primary}
+.content-card h3{font-size:1.5rem;font-weight:600;margin-bottom:15px;line-height:1.3}
+.content-card p{font-size:1rem;line-height:1.6;margin:0}
+
+/* Eventos */
+.carousel-wrapper{max-width:100vw;margin:0 auto;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.carousel-slides{display:flex;transition:transform .5s ease-in-out}
+.carousel-slide{min-width:100%;position:relative;height:90vh;display:flex;align-items:center;justify-content:center}
+.carousel-image{width:100%;height:100%;position:relative}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;width:50px;height:50px;border-radius:50%;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.carousel-btn:hover:not(:disabled){background:$white;transform:translateY(-50%) scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.carousel-btn:disabled{opacity:.5;cursor:not-allowed}
+.carousel-btn-prev{left:20px}
+.carousel-btn-next{right:20px}
+.carousel-indicators{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:3}
+.carousel-indicator{width:12px;height:12px;border-radius:50%;border:2px solid $white;background:transparent;cursor:pointer;transition:all .3s;opacity:.7}
+.carousel-indicator.active{background:$white;opacity:1;transform:scale(1.2)}
+.carousel-indicator:hover{opacity:1;transform:scale(1.1)}
+
+/* Ubicacion */
+.ubicacion{background-image:linear-gradient(rgba(255,255,255,.2),rgba(255,255,255,.2)),url('../../assets/fondoBlanco.jpg');background-position:bottom;padding:70px 15px;display:flex;justify-content:center;text-align:center;color:$primary}
+.ubicacion-title1{font-weight:700}
+.ubicacion-descripcion h1{font-size:2.5rem}
+.ubicacion-descripcion p{font-size:1.5rem}
+
+/* Redes */
+.redes-container{padding:40px 20px;background:$primary}
+.redes-img{max-width:100%;}
+
+/* Footer */
+.footer{background:$primary;color:$white;padding:60px}
+.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));justify-items:center;line-height:1.8}
+.footer-section p{font-size:1.5rem}
+.social-links{display:flex;gap:1rem;justify-content:center;margin-top:20px}
+.social-links a{width:50px;height:50px;background:$white;border-radius:30%;transition:all .3s}
+.social-links a:hover{cursor:pointer;transform:scale(1.1);animation:pulse 2s infinite}
+
+@keyframes pulse{
+0%{box-shadow:0 4px 20px rgba(65,82,190,.4)}
+50%{box-shadow:0 4px 20px rgba(77,138,196,.6),0 0 0 10px rgba(49,164,203,.1)}
+100%{box-shadow:0 4px 20px rgba(126,181,226,.4)}
+}
+
+/* Responsive */
+@media (max-width:768px){
+.nav-menu{position:fixed;left:-100%;top:50px;flex-direction:column;background:$primary;width:100%;text-align:center;transition:.3s;box-shadow:0 10px 27px rgba(0,0,0,.05);padding:2rem 0}
+.nav-menu.active{left:0}
+.nav-toggle{display:flex}
+.nav-logo img{width:30vw}
+.inicio-container{text-align:center;padding:20px;justify-content:center}
+.btn{padding:12px 24px;font-size:.9rem;min-width:120px}
+.inicio{background-size:contain;background-position:center;min-height:auto;height:45vh;background-color: #001b37;}
+.title1{font-size:2.4rem}
+.title2{font-size:2.8rem}
+.nosotros-content p{font-size:1.5rem;padding:20px 20px}
+.info-content{font-size:1.5rem;padding:0 20px}
+.info-content h2{font-size:2rem}
+.horario-grid{display: grid;}
+.content-card{padding:20px}
+.content-card h3{font-size:1.3rem}
+.content-card p{font-size:.95rem}
+.carousel-slide{height:400px}
+.carousel-btn{width:40px;height:40px}
+.carousel-btn-prev{left:10px}
+.carousel-btn-next{right:10px}
+.ubicacion-maps{margin:5px}
+.ubicacion-maps iframe{width:250px}
+.video{width:250px;border-radius: 3%;}
+.redes-container{padding:20px 10px}
+.footer{padding:60px 0}
+.footer-content{text-align:center}
+}

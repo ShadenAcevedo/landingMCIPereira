@@ -1,0 +1,166 @@
+<div class="landing-page">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="#inicio">
+          <img src="../assets/logoMCI.png" alt="logoMCI">
+        </a>
+      </div>
+      <ul class="nav-menu" [class.active]="isMenuOpen">
+        <li><a href="#nosotros" (click)="closeMenu()">Nosotros</a></li>
+        <li><a href="#horarios" (click)="closeMenu()">Horarios</a></li>
+        <li><a href="#eventos" (click)="closeMenu()">Eventos</a></li>
+      </ul>
+      <div class="nav-toggle" (click)="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Inicio Section -->
+  <section id="inicio" class="inicio">
+    <div class="inicio-container">
+      <div class="inicio-buttons">
+        <button class="btn btn-secondary" (click)="openWhatsApp()">
+          Contáctanos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros Section -->
+  <section id="nosotros" class="nosotros">
+    <h1 class="inicio-title1 title1">SOBRE</h1>
+    <h1 class="inicio-title2 title2">NOSOTROS</h1>
+    <div class="nosotros-content">
+      <p>Somos una iglesia que lleva salvación a las familias,
+        compartimos el mensaje de salvación para que más personas 
+        en el mundo conozcan a Jesús y experimenten un nuevo comienzo.
+      </p>
+      <video width="640" height="360" controls class="video">
+        <source src="../assets/invitacionReu.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info">
+    <div class="info-container">
+      <div class="info-content">
+        <p>
+          “Y haré de ti una nación grande, y te bendeciré, y engrandeceré tu nombre, y serás bendición”.
+        </p>
+        <h2>
+          Génesis 12:2 RVR
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horarios Section -->
+  <section id="horarios" class="horarios">
+    <div class="horarios-container">
+      <h1 class="horario-title1 title1">NUESTROS</h1>
+      <h1 class="horario-title2 title2">HORARIOS</h1>
+      <div class="horario-grid">
+        <div class="horario-card" *ngFor="let reunion of reuniones">
+          <img [src]="reunion.img" alt="horariosMCI" class="horario-img">
+          <div class="content-card">
+            <h3>{{ reunion.title }}</h3>
+            <p>{{ reunion.subtitle }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eventos Section -->
+  <section id="eventos" class="eventos">
+    <div class="carousel-wrapper">
+      <!-- Slides -->
+      <div class="carousel-slides" 
+          [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+        <div class="carousel-slide" *ngFor="let item of eventos; let i = index">
+          <img [src]="item.image" [alt]="item.alt" class="carousel-image">
+        </div>
+      </div>
+
+      <!-- Botones de navegación -->
+      <button class="carousel-btn carousel-btn-prev" 
+              (click)="prevSlide()" 
+              [disabled]="currentIndex === 0">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15,18 9,12 15,6"></polyline>
+        </svg>
+      </button>
+      
+      <button class="carousel-btn carousel-btn-next" 
+              (click)="nextSlide()" 
+              [disabled]="currentIndex === eventos.length - 1">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9,18 15,12 9,6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Indicadores -->
+      <div class="carousel-indicators">
+        <button 
+          *ngFor="let item of eventos; let i = index"
+          class="carousel-indicator"
+          [class.active]="i === currentIndex"
+          (click)="goToSlide(i)">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ubicación Section -->
+  <section class="ubicacion">
+    <div class="ubicacion-container">
+      <h1 class="ubicacion-title1 title1">UBICACIÓN</h1>
+      <div class="ubicacion-maps">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.7506790085104!2d-75.71214002596882!3d4.8128175951626435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e388759e33cb3a9%3A0xa26ad9b5effc7f12!2sMision%20Carismatica%20Internacional!5e0!3m2!1ses!2sco!4v1750220275552!5m2!1ses!2sco" 
+          width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="ubicacion-descripcion">
+        <h1>DIRECCIÓN</h1>
+        <p>Calle 37 no. 11-31 Pereira, Risaralda</p>
+      </div>
+
+      <video width="640" height="360" controls class="video">
+        <source src="../assets/reuJovenes.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+  
+  <div class="redes-container">
+    <img src="../assets/redes.png" alt="redes" class="redes-img">
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <img src="../assets/logoMCI.png" alt="logoMCI" width="250">
+        <h2>Contáctanos</h2>
+        <p>mcipereira2025&#64;gmail.com</p>
+      </div>
+      <div class="footer-section">
+        <h2>Síguenos</h2>
+        <div class="social-links">
+          <a href="https://www.facebook.com/mcipereiraoficial" target="_blank">
+            <img src="../assets/facebook.svg" alt="facebook">
+          </a>
+          <a href="https://www.instagram.com/mcipereiraoficial?igsh=NWVtODE0emtrbGUw" target="_blank">
+            <img src="../assets/instagram.svg" alt="instagram">
+          </a>
+          <a target="_blank">
+            <img src="../assets/whatsapp.svg" (click)="openWhatsApp()" alt="whatsapp">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
